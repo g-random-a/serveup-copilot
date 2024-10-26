@@ -1,10 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col mx-auto h-screen">
-      <nav className="relative z-20 border-b border-gray-200 py-5 shadow-[0_0_15px_0_rgb(0,0,0,0.1)]">
+      {/* <nav className="relative z-20 border-b border-gray-200 py-5 shadow-[0_0_15px_0_rgb(0,0,0,0.1)]">
         <div className="flex items-center px-14 mx-auto max-w-7xl lg:px-6">
           <div className="flex flex-row items-center">
             <Link className="no-underline transition-colors" href="/">
@@ -70,7 +72,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </nav>
           </div>
         </div>
-      </nav>
+      </nav> */}
       {children}
     </div>
   )
