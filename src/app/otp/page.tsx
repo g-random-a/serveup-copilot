@@ -1,10 +1,11 @@
-import LoginForm from '@/components/login/login'
-import './styles.css';
+import './styles.css'
+
+import OTPVerification from '@/components/otp/otpPage'
 
 export default function Home() {
   return (
-    <div className='container'>
-        <LoginForm/>
+    <div className="container">
+      <OTPVerification />
     </div>
   )
 }
