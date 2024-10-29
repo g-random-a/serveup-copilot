@@ -3,7 +3,7 @@ import { defineConfig } from 'eslint-config-hyoban'
 
 export default defineConfig(
   {
-    ignores: ['**/*.d.ts'],
+    ignores: ['**/*.d.ts', "**/node_modules/**", "**/ui/**"],
     react: 'next',
     tailwindCSS: true,
   },

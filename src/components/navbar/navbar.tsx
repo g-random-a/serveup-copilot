@@ -13,9 +13,9 @@ const CustomNavbar: React.FC<CustomNavbarProps> = ({ className = '' }) => {
   const currentRoute = usePathname()
 
   return (
-    <div className="sticky bottom-0 max-w-sm w-full translate-x-[50%] mt-4">
+    <div className="sticky bottom-0 max-w-sm w-full justify-self-center self-center">
       <div className={`flex justify-center w-full align-baseline${className}`}>
-        <nav className="w-full max-w-md bg-[#F0FBFE] p-4 border-t border-neutral-400 flex justify-around">
+        <nav className="w-full max-w-md bg-[#F0FBFE] p-4  border-neutral-400 flex justify-around">
           <Link href="/dashboard">
             <button
               className={`flex flex-col items-center  ${currentRoute === '/dashboard' ? 'text-neutral-900' : 'text-neutral-400'}`}

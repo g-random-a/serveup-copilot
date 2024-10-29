@@ -1,11 +1,9 @@
-import LoginForm from '@/components/login/login'
+import HomePage from '@/components/chart/homepage'
 
 export default function Dashboard() {
   return (
-    <div className="container">
-      <LoginForm />
-      <LoginForm />
-      <LoginForm />
+    <div className="homepageContainer">
+      <HomePage />
     </div>
   )
 }

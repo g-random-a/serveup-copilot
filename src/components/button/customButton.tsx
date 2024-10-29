@@ -27,7 +27,9 @@ const buttonStyles = cva(
 const CustomButton: React.FC<
   VariantProps<typeof buttonStyles> & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ intent, size, className, ...props }) => {
-  return <button className={clsx(buttonStyles({ intent, size }), className)} {...props} />
+  return (
+    <button className={clsx(buttonStyles({ intent, size }), className)} {...props} type="button" />
+  )
 }
 
 export default CustomButton

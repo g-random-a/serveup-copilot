@@ -49,7 +49,7 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
   return (
     <div className="max-w-sm w-full">
       <p className="block text-sm text-gray-800 font-medium mb-1">{label}</p>
-      <div className="bg-red">
+      <div>
         <TextField.Root
           placeholder={placeholder}
           {...props}
