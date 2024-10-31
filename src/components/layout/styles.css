@@ -1,8 +1,6 @@
 .layout {
     background-color: #F0FBFE;
     min-height: 100vh;
-    -webkit-overflow-scrolling: 'touch';
-    scrollbar-width: 'none';
     display: flex;
     flex-direction: column;
     justify-content: space-between;
