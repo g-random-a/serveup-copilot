@@ -7,7 +7,7 @@ import CustomNavbar from '../navbar/navbar'
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative mx-auto w-screen layout ">
+    <div className="relative layout">
       {children}
       <CustomNavbar />
     </div>
