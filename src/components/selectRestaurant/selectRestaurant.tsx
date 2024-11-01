@@ -19,11 +19,11 @@ import { useState } from 'react'
 interface RadioItemProps {
   itemValue: string
   label: string
+  setValue: (value: string) => void
+  value: string
 }
 
-const RadioItem: React.FC<RadioItemProps> = ({ itemValue, label }) => {
-  const [value, setValue] = useState('1')
-
+const RadioItem: React.FC<RadioItemProps> = ({ itemValue, label, setValue, value }) => {
   const datalist = [
     { title: 'Server', value: 'Online' },
     { title: 'On line order', value: 'Online' },
@@ -78,22 +78,36 @@ const RadioItem: React.FC<RadioItemProps> = ({ itemValue, label }) => {
 }
 
 function StoreSelector() {
+  const [value, setValue] = useState('1')
+
   return (
     <Box maxWidth="600px">
-      <RadioItem itemValue="1" label="Roman's Sunnyside" />
-      <RadioItem itemValue="2" label="Roman's Sunnyside" />
-      <RadioItem itemValue="3" label="Roman's Sunnyside" />
-      <RadioItem itemValue="4" label="Roman's Sunnyside" />
+      <RadioItem itemValue="1" label="Roman's Sunnyside" value={value} setValue={setValue} />
+      <RadioItem itemValue="2" label="Roman's Sunnyside" value={value} setValue={setValue} />
+      <RadioItem itemValue="3" label="Roman's Sunnyside" value={value} setValue={setValue} />
+      <RadioItem itemValue="4" label="Roman's Sunnyside" value={value} setValue={setValue} />
     </Box>
   )
 }
 
-function dialogBox() {
+interface SelectRestaurantDialogBoxProps {
+  isOpen?: boolean
+  setOpen?: (open: boolean) => void
+  trigger?: string
+}
+
+const SelectRestaurantDialogBox: React.FC<SelectRestaurantDialogBoxProps> = ({
+  isOpen,
+  setOpen,
+  trigger,
+}) => {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger>
-        <Button>Open popup</Button>
-      </Dialog.Trigger>
+    <Dialog.Root open={isOpen} onOpenChange={setOpen}>
+      {trigger && (
+        <Dialog.Trigger>
+          <Button>Open popup</Button>
+        </Dialog.Trigger>
+      )}
 
       <Dialog.Content
         maxWidth="450px"
@@ -142,4 +156,4 @@ function dialogBox() {
   )
 }
 
-export default dialogBox
+export default SelectRestaurantDialogBox

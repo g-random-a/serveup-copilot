@@ -6,6 +6,7 @@ import * as React from 'react'
 import { useState } from 'react'
 
 import CustomButton from '../button/customButton'
+import CustomAlertDialog from '../dialog/alertDialog'
 import InputField from '../inputs/input'
 
 function LoginForm() {
@@ -15,6 +16,7 @@ function LoginForm() {
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const handleLogin = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
@@ -24,6 +26,7 @@ function LoginForm() {
     } else {
       setError(null)
       // wait for 30 sec
+      setIsDialogOpen(true)
       setTimeout(() => {
         setLoading(false)
         router.push('/otp')
@@ -56,15 +59,19 @@ function LoginForm() {
         value={password}
       />
 
-      <CustomButton
-        intent="primary"
-        size="large"
-        className="w-full mt-4"
-        onClick={handleLogin}
-        disabled={loading}
-      >
+      <CustomButton intent="primary" size="large" onClick={handleLogin} disabled={loading}>
         {loading ? <Spinner /> : 'Login'}
       </CustomButton>
+
+      <CustomAlertDialog
+        title="You do not have access to co-pilot"
+        description="Please contact your system administrator to enable your co-pilot log in."
+        open={isDialogOpen}
+        setOpen={() => {
+          setIsDialogOpen(!isDialogOpen)
+        }}
+        cancelText="Okay"
+      />
 
       <a href="#" className="text-blue-600 mt-4 ">
         Forgot password?

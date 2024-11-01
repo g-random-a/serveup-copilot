@@ -34,7 +34,7 @@ function OTPVerification() {
     setOtpCode(otp)
     setTimeout(() => {
       setLoading(false)
-      router.push('/otp')
+      router.push('/dashboard')
     }, 3000)
   }
 

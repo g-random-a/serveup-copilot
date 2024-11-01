@@ -7,6 +7,7 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
+import SelectRestaurantDialogBox from '../selectRestaurant/selectRestaurant'
 import SelectRestaurantComponent from '../selectRestaurant/selectRestaurantComponent'
 import { Button } from '../ui/button'
 import HomePageCrousal from './crousal'
@@ -17,6 +18,8 @@ const date = {
 }
 
 const HomePage: React.FC = () => {
+  const [restaurantSelectorIsOpen, setRestaurantSelectorIsOpen] = React.useState(false)
+
   return (
     <Flex
       align="center"
@@ -25,7 +28,13 @@ const HomePage: React.FC = () => {
       gap="3"
       className="bg-white w-full p-4 max-w-sm "
     >
-      <SelectRestaurantComponent title="Roman's Sunnyside" value="Online" onclick={() => {}} />
+      <SelectRestaurantComponent
+        title="Roman's Sunnyside"
+        value="Online"
+        //  onclick={() => {setRestaurantSelectorIsOpen(!restaurantSelectorIsOpen)}}
+        active={restaurantSelectorIsOpen}
+        setActive={setRestaurantSelectorIsOpen}
+      />
 
       <SegmentedControl.Root defaultValue="inbox" radius="small">
         <SegmentedControl.Item value="inbox">Net sales</SegmentedControl.Item>
@@ -58,6 +67,10 @@ const HomePage: React.FC = () => {
         </Button>
 
         <Button variant="secondary"> Compare</Button>
+        <SelectRestaurantDialogBox
+          isOpen={restaurantSelectorIsOpen}
+          setOpen={setRestaurantSelectorIsOpen}
+        />
       </Flex>
     </Flex>
   )

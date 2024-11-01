@@ -5,17 +5,25 @@ import * as React from 'react'
 interface DataListProps {
   title: string
   value: string
-  onclick: () => void
+  onclick?: () => void
+  active: boolean
+  setActive: (active: boolean) => void
 }
 
-const SelectRestaurantComponent: React.FC<DataListProps> = ({ title, value, onclick }) => {
-  const [active, setActive] = React.useState(false)
+const SelectRestaurantComponent: React.FC<DataListProps> = ({
+  title,
+  value,
+  onclick,
+  active,
+  setActive,
+}) => {
+  // const [active, setActive] = React.useState(false)
 
   return (
     <div
       onClick={() => {
         setActive(!active)
-        onclick()
+        if (onclick) onclick()
       }}
       tabIndex={0}
       style={{
