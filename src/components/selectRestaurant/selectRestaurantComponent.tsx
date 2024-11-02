@@ -17,8 +17,6 @@ const SelectRestaurantComponent: React.FC<DataListProps> = ({
   active,
   setActive,
 }) => {
-  // const [active, setActive] = React.useState(false)
-
   return (
     <div
       onClick={() => {

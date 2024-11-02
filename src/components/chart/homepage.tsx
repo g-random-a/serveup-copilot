@@ -7,6 +7,7 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
+import HomeDatePickerSheet from '../selectDatePopUp/homeSelect'
 import SelectRestaurantDialogBox from '../selectRestaurant/selectRestaurant'
 import SelectRestaurantComponent from '../selectRestaurant/selectRestaurantComponent'
 import { Button } from '../ui/button'
@@ -19,6 +20,7 @@ const date = {
 
 const HomePage: React.FC = () => {
   const [restaurantSelectorIsOpen, setRestaurantSelectorIsOpen] = React.useState(false)
+  const [isDateSelectorOpen, setDateSelectorOpen] = React.useState(false)
 
   return (
     <Flex
@@ -51,6 +53,9 @@ const HomePage: React.FC = () => {
           id="date"
           variant="outline"
           className={cn('justify-start text-left font-normal', !date && 'text-muted-foreground')}
+          onClick={() => {
+            setDateSelectorOpen(!isDateSelectorOpen)
+          }}
         >
           {date?.from ? (
             date.to ? (
@@ -71,6 +76,7 @@ const HomePage: React.FC = () => {
           isOpen={restaurantSelectorIsOpen}
           setOpen={setRestaurantSelectorIsOpen}
         />
+        <HomeDatePickerSheet isOpen={isDateSelectorOpen} onOpenChange={setDateSelectorOpen} />
       </Flex>
     </Flex>
   )
